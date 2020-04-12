@@ -1,4 +1,4 @@
-# GameiomDailyRep
+# Gameiom Daily Report Collection
 
 
 Requirements:
