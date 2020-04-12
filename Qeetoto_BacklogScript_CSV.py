@@ -37,8 +37,9 @@ wb.save(filename = fileName)
 username = input("Enter Gameiom username: ")
 password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
 
+cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/chromedriver'
 
-driver = webdriver.Chrome('/Users/macbookpro/Documents/Qeetoto Scripts/chromedriver')
+driver = webdriver.Chrome(cDriverpath   )
 
 driver.get('https://cdn.gameiom.com/gameiom/backoffice/production/latest/index.html#dailyReport')
 
@@ -60,6 +61,10 @@ time.sleep(2)
 date = date(init_year,init_month,init_day)
 tDelta = timedelta(days=1)
 
+downloadsPath = getPath('Downloads')
+downloadsPath_W_CSV = str(downloadsPath + '/gm-dailyReport.csv')
+
+
 for i in range(delta):
     
     try:
@@ -68,9 +73,9 @@ for i in range(delta):
     except TimeoutException:
         print("Error 02")
  
-    while not os.path.exists('/Users/macbookpro/Downloads/gm-dailyReport.csv'):
+    while not os.path.exists(downloadsPath_W_CSV):
         time.sleep(1)
-    moveData(date, fileName)
+    moveData(date, fileName, downloadsPath_W_CSV)
     date += tDelta
     
     if ((i+1)== delta):

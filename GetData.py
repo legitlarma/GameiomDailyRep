@@ -13,7 +13,7 @@ def nextFreeRow(doc):
     return (sheet.nrows)
 
 
-def moveData(date, fileName):
+def moveData(date, fileName, DLPath):
 
     dest_filename = fileName
     b = False
@@ -27,7 +27,7 @@ def moveData(date, fileName):
     ws = wb.active
 
     ws.cell(row = row+1, column = 1).value = date
-    tempDF = pd.read_csv('/Users/macbookpro/Downloads/gm-dailyReport.csv')
+    tempDF = pd.read_csv(DLPath)
     tempDF = tempDF.replace(np.nan, '', regex=True)
     for i in range(len(tempDF)):
         row = row + 1
@@ -37,5 +37,5 @@ def moveData(date, fileName):
 
     wb.save(filename = fileName)
 
-    os.remove('/Users/macbookpro/Downloads/gm-dailyReport.csv')
+    os.remove(DLPath)
 

@@ -7,8 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import datetime
 import getpass
+import os
+from pathlib import Path
 
-
+def getPath(name):
+    pathName = str(os.path.join(Path.home(), name))
+    return pathName
 
 def monthToInt(month):
     if (month == 'Jan'):
