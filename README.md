@@ -1,6 +1,8 @@
 # Gameiom Daily Report Collection
 
 
+
+
 Requirements:
 
   - Python 3.7.3
@@ -11,6 +13,7 @@ Requirements:
     - numpy 1.15.1
     - xlrd 1.2.0
   - Google Chrome 80.0.3987.163 (Version won't impact program... I think)
+    - Make sure the downloads location is the default OS downloads folder, so the program can find the path for each of the downloaded CSV files.
 
 
 Installation:
