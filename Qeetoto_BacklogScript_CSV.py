@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import datetime
+from openpyxl import Workbook
 from datetime import timedelta,date
 import getpass
 import functions
@@ -29,8 +30,9 @@ delta = delta.days + 1
 
 fileName = str(date(init_year,init_month,init_day)) + '--' + str(date(final_year,final_month,final_day)) + '.xlsx'
 fileName = str(fileName)
-
-
+wb = Workbook()
+ws = wb.active
+wb.save(filename = fileName)
 
 username = input("Enter Gameiom username: ")
 password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
