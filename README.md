@@ -1,19 +1,19 @@
 # Gameiom Daily Report Collection
 
 Files:
-  - Qeetoto_BacklogScript_CSV.py
+  - **Qeetoto_BacklogScript_CSV.py**
     - From a user-defined start and end date, the program logs into Gameiom account and  automates the downloads of all csv files in gameiom daily reports and moves data into a single excel (xlsx) document
-  - Qeetoto_Daily_CSVFile.py
+  - **Qeetoto_Daily_CSVFile.py**
     - Downloads individual daily report for chosen day
     - Moves data into permanent location
     - Delete individual daily report
-  - GetData.py
+  - **GetData.py**
     - Gets data from temporary csv file that has been downloaded
     - Moves data into permanent location
     - Deletes downloaded file
-  - functions.py
+  - **functions.py**
     - Some functions created to allow the main programs to work correctly
-  - chromedriver
+  - **chromedriver**
     - Driver used by Selenium to allow for Google Chrome to automatically open
 
 
@@ -43,7 +43,7 @@ Installation:
     
   - Selenium installation: 
     - https://selenium-python.readthedocs.io/installation.html
-    - Don't install the chromedriver as it is already in the git repository
+    - ***Don't install the chromedriver as it is already in the git repository***
   
   - Openpyxl:
     - 'pip install openpyxl'
