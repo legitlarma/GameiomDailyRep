@@ -39,19 +39,12 @@ password = getpass.getpass("Password: ") #privately gets password (only in termi
 
 cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/chromedriver'
 
-driver = webdriver.Chrome(cDriverpath   )
+driver = webdriver.Chrome(cDriverpath)
 
 driver.get('https://cdn.gameiom.com/gameiom/backoffice/production/latest/index.html#dailyReport')
 
 
-try:
-    elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div/div/div/form/div[1]/input')))#driver.find_element_by_xpath('/html/body/div/div/div/div/form/div[1]/input')
-    elem.send_keys(username)
-    elem = driver.find_element_by_xpath('/html/body/div/div/div/div/form/div[2]/input')
-    elem.send_keys(password + Keys.RETURN) #security won't be compromised because this is client-side only
-except TimeoutException:
-    print("Error 01")
-    driver.quit()
+GameiomLogin(username, password, driver, delay)
 time.sleep(2)
 
 

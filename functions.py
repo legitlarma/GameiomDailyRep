@@ -10,6 +10,17 @@ import getpass
 import os
 from pathlib import Path
 
+def GameiomLogin(username, password, driver, delay):
+    try:
+        elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div/div/div/form/div[1]/input')))
+        elem.send_keys(username)
+        elem = driver.find_element_by_xpath('/html/body/div/div/div/div/form/div[2]/input')
+        elem.send_keys(password + Keys.RETURN) #security won't be compromised because this is client-side only
+    except TimeoutException:
+        print("Error 01")
+        driver.quit()
+
+
 def getPath(name):
     pathName = str(os.path.join(Path.home(), name))
     return pathName
@@ -42,12 +53,11 @@ def monthToInt(month):
 def gotoDate(driver, year, month, day):
     elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')          #click date drop down
     elem.click()
-    elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/thead/tr[1]/th[2]')     #go back to year
-    elem.click()
-    time.sleep(1)
-    elem.click()
-    time.sleep(1)
-    elem.click()
+
+    for i in range(3):
+        elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/thead/tr[1]/th[2]')     #go back to year
+        elem.click()
+        time.sleep(1)
     
     while True:
         elem_first = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr/td/span[1]')      #first year in list
@@ -99,12 +109,37 @@ def gotoDate(driver, year, month, day):
             break
         else:
             continue
-            
 
-    
+
+def prevDay(currDay, driver):
+    done = False
+    delay = 3
+    #elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')          #click date drop down
+    elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')))
+    elem.click()
+    for i in range(6):
+        for j in range(7):
+            xpath_ele = '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr['+str(i+1)+']/td['+str(j+1)+']'
+            time.sleep(1)
+            newelem = driver.find_element_by_xpath(xpath_ele)
+            if (int(newelem.text) == (currDay-1)):
+                text = newelem.text
+                newelem.click()
+                done = True
+                return text
+            else:
+                continue
+
+        if (done == True):
+            break
+        else:
+            continue
+
 def nextDay(prevDate, driver):   #go to next day
     done = False
-    elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')          #click date drop down
+    delay = 3
+    elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')))
+    #elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')          #click date drop down
     elem.click()
     for i in range(6):
         for j in range(7):
