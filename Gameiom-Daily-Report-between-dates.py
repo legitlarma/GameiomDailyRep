@@ -77,7 +77,7 @@ for i in range(delta):
     day = day + 1
     time.sleep(1)
 
-
+driver.quit()
 
 
 

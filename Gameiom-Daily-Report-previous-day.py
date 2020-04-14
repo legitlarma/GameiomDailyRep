@@ -43,4 +43,4 @@ except TimeoutException:
 moveData((date.today() - delta), 'data.xlsx', downloadsPath_W_CSV)
 
 
-
+driver.quit()
