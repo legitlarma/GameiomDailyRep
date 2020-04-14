@@ -18,7 +18,10 @@ Files:
 
 
 Requirements:
-
+  - All code was created on a Mac, therefore there may be some issues with Windows systems
+    - For example: The bash files won't work on Windows (Will create .bat files though)
+      - Manually run programs with Windows
+    - Scripts should work on Unix and MacOS systems
   - Python 3.7.3
     - selenium 3.141.0
       - chromedriver
