@@ -120,7 +120,6 @@ def prevDay(currDay, driver):
     for i in range(6):
         for j in range(7):
             xpath_ele = '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr['+str(i+1)+']/td['+str(j+1)+']'
-            time.sleep(1)
             newelem = driver.find_element_by_xpath(xpath_ele)
             if (int(newelem.text) == (currDay-1)):
                 text = newelem.text
