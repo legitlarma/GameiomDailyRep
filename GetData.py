@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import datetime
 import xlrd
-
+import time
 def nextFreeRow(doc):                                                          
     count = 0                                                         
     filo = doc                 
@@ -14,6 +14,15 @@ def nextFreeRow(doc):
 
 
 def moveData(date, fileName, DLPath):
+
+    time_to_wait = 10
+    time_counter = 0
+    while not os.path.exists(DLPath):
+        time.sleep(1)
+        time_counter += 1
+    if time_counter > time_to_wait:
+        print("Error - File Not Downloaded")
+        return 0
 
     dest_filename = fileName
     b = False
