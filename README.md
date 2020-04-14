@@ -1,11 +1,11 @@
 # Gameiom Daily Report Collection
 
 Files:
-  - **Qeetoto_BacklogScript_CSV.py**
+  - **Gameiom-Daily-Report-between-dates.py**
     - From a user-defined start and end date, the program logs into Gameiom account and  automates the downloads of all csv files in gameiom daily reports and moves data into a single excel (xlsx) document
-  - **Qeetoto_Daily_CSVFile.py**
-    - Downloads individual daily report for chosen day
-    - Moves data into permanent location
+  - **Gameiom-Daily-Report-previous-day.py**
+    - Downloads individual daily report for the previous day
+    - Moves data into permanent --excel doc--
     - Delete individual daily report
   - **GetData.py**
     - Gets data from temporary csv file that has been downloaded
