@@ -10,6 +10,17 @@ import getpass
 import os
 from pathlib import Path
 
+def LoginError(driver):
+    delay = 3
+    elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div/error-box/div')))
+    elemclass = elem.get_attribute('class')
+    print ('elemclass=', elemclass)
+    if (elemclass == 'error-box ng-binding'):
+        print('Login Error: Login or Password Incorrect')
+        return True
+    else:
+        return False
+
 def GameiomLogin(username, password, driver, delay):
     try:
         elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div/div/div/form/div[1]/input')))
