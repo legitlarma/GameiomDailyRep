@@ -6,7 +6,8 @@ from datetime import date, timedelta
 from functions import *
 from GetData import *
 import os
-def go():
+
+def prevDay():
     delta = timedelta(days = 1)
     downloadsPath = getPath('Downloads')
     downloadsPath_W_CSV = str(downloadsPath + '/gm-dailyReport.csv')
@@ -21,6 +22,7 @@ def go():
     delay = 3
     GameiomLogin(username, password, driver, delay)
     time.sleep(2)
+
     if (LoginError(driver) == True):
         driver.quit()
         return 0
@@ -30,7 +32,6 @@ def go():
 
     prevDay(date.today().day, driver)
 
-    time.sleep(2)
     dest_filename = 'data.xlsx'
     if not os.path.isfile(dest_filename):
         wb = Workbook()
@@ -50,4 +51,6 @@ def go():
 
 
     driver.quit()
-go()
+    return 0
+
+prevDay()
