@@ -5,9 +5,11 @@ import getpass
 from datetime import date, timedelta
 from functions import *
 from GetData import *
+from datetime import datetime
 import os
+import schedule
 
-def prevDay():
+def prevDayCollect():
     delta = timedelta(days = 1)
     downloadsPath = getPath('Downloads')
     downloadsPath_W_CSV = str(downloadsPath + '/gm-dailyReport.csv')
@@ -53,4 +55,8 @@ def prevDay():
     driver.quit()
     return 0
 
-prevDay()
+
+schedule.every().day.at("04:00").do(prevDayCollect)
+while True:
+    schedule.run_pending()
+    time.sleep(1)

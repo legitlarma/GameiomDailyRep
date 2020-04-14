@@ -11,7 +11,7 @@ import getpass
 import functions
 from functions import *
 from GetData import *
-from openpyxl import Workbook
+
 
 def betweenDates():
     delay = 3
