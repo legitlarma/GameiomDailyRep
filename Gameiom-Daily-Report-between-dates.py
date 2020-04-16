@@ -5,25 +5,29 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import datetime import *
+import datetime
 from openpyxl import Workbook
+from datetime import timedelta,date
 import getpass
-import functions
-from functions import *
-from GetData import *
-
+from src import GetData as gd
+from src import functions as f
+from openpyxl import Workbook
+import os
 
 def betweenDates():
     delay = 3
 
-    init_year = int (input ("input initial year (yyyy) : "))
-    init_month = int (input ("input initial month (MM) : "))
-    init_day = int (input ("input initial day (dd) : "))
-    init_date = datetime.datetime(init_year, init_month, init_day)
-    final_year = int (input ("input finish year (yyyy) : "))
-    final_month = int (input ("input finish month (MM) : "))
-    final_day = int (input ("input finish day (dd) : "))
-    final_date = datetime.datetime(final_year, final_month, final_day)
+    try:
+        init_year = int (input ("input initial year (yyyy) : "))
+        init_month = int (input ("input initial month (MM) : "))
+        init_day = int (input ("input initial day (dd) : "))
+        init_date = datetime.datetime(init_year, init_month, init_day)
+        final_year = int (input ("input finish year (yyyy) : "))
+        final_month = int (input ("input finish month (MM) : "))
+        final_day = int (input ("input finish day (dd) : "))
+        final_date = datetime.datetime(final_year, final_month, final_day)
+    except ValueError:
+        print('Error Try again')
     delta = final_date - init_date
     delta = delta.days + 1
 
@@ -31,33 +35,34 @@ def betweenDates():
     fileName = str(fileName)
     wb = Workbook()
     ws = wb.active
-    wb.save(filename = fileName)
+    fileName = str(os.path.dirname(os.path.abspath(__file__)))+'/data/betweenDates/'+fileName
+    wb.save(fileName)
 
     username = input("Enter Gameiom username: ")
     password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
 
-    cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/chromedriver'
+    cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/src/chromedriver'
 
     driver = webdriver.Chrome(cDriverpath)
 
     driver.get('https://cdn.gameiom.com/gameiom/backoffice/production/latest/index.html#dailyReport')
 
 
-    GameiomLogin(username, password, driver, delay)
+    f.GameiomLogin(username, password, driver, delay)
     time.sleep(2)
-    if (LoginError(driver) == True):
+    if (f.LoginError(driver) == True):
             driver.quit()
             return 0
     else:
         print("Login Successful")
 
-    xpath_day = gotoDate(driver, init_year, init_month, init_day)
+    xpath_day = f.gotoDate(driver, init_year, init_month, init_day)
     day = init_day
     time.sleep(2)
     date = date(init_year,init_month,init_day)
     tDelta = timedelta(days=1)
 
-    downloadsPath = getPath('Downloads')
+    downloadsPath = f.getPath('Downloads')
     downloadsPath_W_CSV = str(downloadsPath + '/gm-dailyReport.csv')
 
 
@@ -71,18 +76,14 @@ def betweenDates():
      
         while not os.path.exists(downloadsPath_W_CSV):
             time.sleep(1)
-        moveData(date, fileName, downloadsPath_W_CSV)
+        gd.moveData(date, fileName, downloadsPath_W_CSV)
         date += tDelta
         
         if ((i+1)== delta):
             break
-        nextDay(day,driver)
+        f.nextDay(day,driver)
         day = day + 1
         time.sleep(1)
 
     driver.quit()
-    return 0
-
 betweenDates()
-
-
