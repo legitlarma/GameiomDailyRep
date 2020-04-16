@@ -29,6 +29,7 @@ Requirements:
     - pandas 0.25.3
     - numpy 1.15.1
     - xlrd 1.2.0
+    - schedule 0.6.0
   - Google Chrome 80.0.3987.163 (Version won't impact program... I think)
     - Make sure the downloads location is the default OS downloads folder, so the program can find the path for each of the downloaded CSV files.
 
@@ -63,3 +64,7 @@ Installation:
   - Xlrd:
     - 'pip install xlrd'
     - https://pypi.org/project/xlrd/#description
+    
+  - Schedule:
+    - 'pip install schedule'
+    - https://pypi.org/project/schedule/
