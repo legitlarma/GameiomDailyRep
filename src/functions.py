@@ -167,5 +167,6 @@ def nextDay(prevDate, driver):   #go to next day
             break
         else:
             continue
+
         
     #return xpath for next day

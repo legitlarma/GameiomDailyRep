@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import datetime
 from openpyxl import Workbook
-from datetime import timedelta,date
+from datetime import timedelta, date
 import getpass
 from src import GetData as gd
 from src import functions as f
@@ -34,7 +34,6 @@ def betweenDates():
     fileName = str(date(init_year,init_month,init_day)) + '--' + str(date(final_year,final_month,final_day)) + '.xlsx'
     fileName = str(fileName)
     wb = Workbook()
-    ws = wb.active
     fileName = str(os.path.dirname(os.path.abspath(__file__)))+'/data/betweenDates/'+fileName
     wb.save(fileName)
 
@@ -56,10 +55,10 @@ def betweenDates():
     else:
         print("Login Successful")
 
-    xpath_day = f.gotoDate(driver, init_year, init_month, init_day)
+    f.gotoDate(driver, init_year, init_month, init_day)
     day = init_day
     time.sleep(2)
-    date = date(init_year,init_month,init_day)
+    date1 = date(init_year,init_month,init_day)
     tDelta = timedelta(days=1)
 
     downloadsPath = f.getPath('Downloads')
@@ -76,8 +75,8 @@ def betweenDates():
      
         while not os.path.exists(downloadsPath_W_CSV):
             time.sleep(1)
-        gd.moveData(date, fileName, downloadsPath_W_CSV)
-        date += tDelta
+        gd.moveData(date1, fileName, downloadsPath_W_CSV)
+        date1 += tDelta
         
         if ((i+1)== delta):
             break

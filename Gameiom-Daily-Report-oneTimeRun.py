@@ -34,7 +34,6 @@ def oneRun():
     fileName = str(os.path.dirname(os.path.abspath(__file__)))+'/data'
     if not fileName:
         wb = Workbook()
-        ws = wb.active
         wb.save(str(fileName+'/'+dest_filename))
     fileName = str(fileName+'/'+dest_filename)
     username = input("Enter Gameiom username: ")
@@ -55,7 +54,7 @@ def oneRun():
     else:
         print("Login Successful")
 
-    xpath_day = f.gotoDate(driver, init_year, init_month, init_day)
+    f.gotoDate(driver, init_year, init_month, init_day)
     day = init_day
     time.sleep(2)
     date1 = date(init_year,init_month,init_day)

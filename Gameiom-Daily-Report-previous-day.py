@@ -1,4 +1,5 @@
 import time
+from openpyxl import Workbook
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
@@ -24,7 +25,7 @@ def prevDayCollect():
     cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/src/chromedriver'
 
     driver = webdriver.Chrome(cDriverpath)
-    driver.get('https://cdn.gameiom.com/gameiom/backoffice/production/latest/index.html#dailyReport');
+    driver.get('https://cdn.gameiom.com/gameiom/backoffice/production/latest/index.html#dailyReport')
     delay = 3
     f.GameiomLogin(username, password, driver, delay)
     time.sleep(2)
@@ -42,7 +43,6 @@ def prevDayCollect():
     fileName = str(os.path.dirname(os.path.abspath(__file__)))+'/data'
     if not fileName:
         wb = Workbook()
-        ws = wb.active
         wb.save(fileName)
         
     file = fileName+'/'+dest_filename
