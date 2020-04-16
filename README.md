@@ -1,6 +1,8 @@
 # Gameiom Daily Report Collection
 
 Files:
+  - **Gameiom-Daily-Report-oneTimeRun.py**
+    - From user-defined start date, the program logs into Gameiom account and automates the downloads of all csv files between the start date and today-1 (yesterday). Moves all csv data into single file called 'data.xlsx' and deletes downloaded csv files.
   - **Gameiom-Daily-Report-between-dates.py**
     - From a user-defined start and end date, the program logs into Gameiom account and  automates the downloads of all csv files in gameiom daily reports and moves data into a single excel (xlsx) document
   - **Gameiom-Daily-Report-previous-day.py**
