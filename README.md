@@ -1,6 +1,11 @@
 # Gameiom Daily Report Collection
 
-Files:
+##Table Of Contents
+**[Files](#Files)**<br>
+
+
+
+##Files:
   - **Gameiom-Daily-Report-oneTimeRun.py**
     - From user-defined start date, the program logs into Gameiom account and automates the downloads of all csv files between the start date and today-1 (yesterday). Moves all csv data into single file called 'data.xlsx' and deletes downloaded csv files.
   - **Gameiom-Daily-Report-between-dates.py**
@@ -19,7 +24,7 @@ Files:
     - Driver used by Selenium to allow for Google Chrome to automatically open
 
 
-Requirements:
+##Requirements:
   - All code was created on a Mac, therefore there may be some issues with Windows systems
     - For example: The bash files won't work on Windows (Will create .bat files though)
       - Manually run programs with Windows
@@ -36,7 +41,7 @@ Requirements:
     - Make sure the downloads location is the default OS downloads folder, so the program can find the path for each of the downloaded CSV files.
 
 
-Installation:
+##Installation:
   
   - Google Chrome:
     - https://www.google.co.uk/chrome/?brand=CHBD&gclid=Cj0KCQjw-Mr0BRDyARIsAKEFbef_cgSWiueBquxOAjT_eOyzBFO2-26xPHg1h160mMPW2wHubd3bj5QaAkTeEALw_wcB&gclsrc=aw.ds
