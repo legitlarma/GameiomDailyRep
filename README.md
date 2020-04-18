@@ -46,7 +46,15 @@ Installation:
     
   - Install Pip: Use pip to install all packages for python
     - https://pip.pypa.io/en/stable/installing/
-    
+
+  **Once Pip is installed, you can install all Python modules by going into your terminal and typing:**
+   ```console
+   pip install -r requirements.txt
+   ```
+
+  Or,
+
+  Individually install (why though...):
   - Selenium installation: 
     - https://selenium-python.readthedocs.io/installation.html
     - ***Don't install the chromedriver as it is already in the git repository***
