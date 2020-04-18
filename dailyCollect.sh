@@ -1,3 +1,4 @@
 currDirExe="$(pwd)/Gameiom-Daily-Report-previous-day.py"
 echo "${currDirExe}"
-python3 ${currDirExe}
+exec nohup python3 ${currDirExe} &
+#open on start up
