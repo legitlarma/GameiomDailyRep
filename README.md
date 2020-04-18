@@ -8,24 +8,24 @@
 **[Run script from Startup]()**
 
 ## File Description:
-  - **Gameiom-Daily-Report-oneTimeRun.py**
+  - **[Gameiom-Daily-Report-oneTimeRun.py](Gameiom-Daily-Report-oneTimeRun.py)**
     - From user-defined start date, the program logs into Gameiom account and automates the downloads of all csv files between the start date and today-1 (yesterday). Moves all csv data into single file called 'data.xlsx' and deletes downloaded csv files.
-  - **Gameiom-Daily-Report-between-dates.py**
+  - **[Gameiom-Daily-Report-between-dates.py](Gameiom-Daily-Report-between-dates.py)**
     - From a user-defined start and end date, the program logs into Gameiom account and  automates the downloads of all csv files in gameiom daily reports and moves data into a single excel (xlsx) document
-  - **Gameiom-Daily-Report-previous-day.py**
+  - **[Gameiom-Daily-Report-previous-day.py](Gameiom-Daily-Report-previous-day.py)**
     - Downloads individual daily report for the previous day
     - Moves data into permanent --excel doc--
     - Delete individual daily report
-  - **GetData.py**
+  - **[GetData.py](GetData.py)**
     - Gets data from temporary csv file that has been downloaded
     - Moves data into permanent location
     - Deletes downloaded file
-  - **functions.py**
+  - **[functions.py](functions.py)**
     - Some functions created to allow the main programs to work correctly
-  - **dailyCollect.sh**
+  - **[dailyCollect.sh](dailyCollect.sh)**
     - Bash file to automatically run daily report collection of previous day at 4am every day. This has to be restarted on reboot.
     - Script can be opened automatically on startup --link to how to for windows and mac--
-  - **chromedriver**
+  - **[chromedriver](https://chromedriver.chromium.org)**
     - Driver used by Selenium to allow for Google Chrome to automatically open
 
 
@@ -111,7 +111,7 @@
   ----
   There is not a script to collect for current day because the data is still being collected, therefore the daily collection is for the previous day.<br>
   <br>
-  The program is coded to run at 4am and collect for previous day, which allows for any lag in Gameioms servers. Run the dailyCollect.sh script in terminal:
+  The program is coded to run at 4am and collect for previous day, which allows for any lag in Gameioms servers. Run the **[dailyCollect.sh](dailyCollect.sh)** script in terminal:
   ```console
           bash dailyCollect.sh
   ```
