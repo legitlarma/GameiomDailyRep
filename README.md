@@ -98,7 +98,7 @@
 ## How to use Scripts
   ### Collecting Backlog of Daily Reports 
   ----
-  On initial install (before running any other scripts), run the [Gameiom-Daily-Report-oneTimeRun.py](**Gameiom-Daily-Report-oneTimeRun.py**) script to load the backlog of daily reports from users chosen start date. To do this, in the terminal, run the oneTimeRun.sh file:
+  On initial install (before running any other scripts), run the [Gameiom-Daily-Report-oneTimeRun.py](Gameiom-Daily-Report-oneTimeRun.py) script to load the backlog of daily reports from users chosen start date. To do this, in the terminal, run the oneTimeRun.sh file:
   ```console
           bash oneTimeRun.sh
   ```
