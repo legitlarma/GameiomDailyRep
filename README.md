@@ -1,7 +1,6 @@
 # Gameiom Daily Report Collection
 
 ## Table Of Contents<br>
-----
 **[File Description](#File-Description)**<br>
 **[Requirements](#Requirements)**<br>
 **[Installation](#Installation)**<br>
@@ -9,7 +8,6 @@
 **[Run script from Startup]()**
 
 ## File Description:
-----
   - **Gameiom-Daily-Report-oneTimeRun.py**
     - From user-defined start date, the program logs into Gameiom account and automates the downloads of all csv files between the start date and today-1 (yesterday). Moves all csv data into single file called 'data.xlsx' and deletes downloaded csv files.
   - **Gameiom-Daily-Report-between-dates.py**
@@ -32,7 +30,6 @@
 
 
 ## Requirements:
-----
   - All code was created on a Mac, therefore there may be some issues with Windows systems
     - For example: The bash files won't work on Windows (Will create .bat files though)
       - Manually run programs with Windows
@@ -50,7 +47,7 @@
 
 
 ## Installation:
-  ---
+  
   - [**Google Chrome**](https://www.google.co.uk/chrome/?brand=CHBD&gclid=Cj0KCQjw-Mr0BRDyARIsAKEFbef_cgSWiueBquxOAjT_eOyzBFO2-26xPHg1h160mMPW2wHubd3bj5QaAkTeEALw_wcB&gclsrc=aw.ds)<br>
   
   - [**Python (3.7.3)**](https://www.python.org/downloads/release/python-373/)<br>
@@ -99,8 +96,8 @@
 <br>
 
 ## How to use Scripts
----
   ### Collecting previous daily reports 
+  ----
   On initial install (before running any other scripts), run the Gameiom-Daily-Report-oneTimeRun.py script to load the backlog of daily reports from users chosen start date. To do this, in the terminal, run the oneTimeRun.sh file:
   ```console
           bash oneTimeRun.sh
