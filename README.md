@@ -1,7 +1,9 @@
 # Gameiom Daily Report Collection
 
-##Table Of Contents
+## Table Of Contents<br>
 **[Files](#Files)**<br>
+**[Requirements](#Requirements)**<br>
+**[Installation](#Installation)**<br>
 
 
 
@@ -43,14 +45,11 @@
 
 ## Installation:
   
-  - Google Chrome:
-    - https://www.google.co.uk/chrome/?brand=CHBD&gclid=Cj0KCQjw-Mr0BRDyARIsAKEFbef_cgSWiueBquxOAjT_eOyzBFO2-26xPHg1h160mMPW2wHubd3bj5QaAkTeEALw_wcB&gclsrc=aw.ds
+  - [**Google Chrome**](https://www.google.co.uk/chrome/?brand=CHBD&gclid=Cj0KCQjw-Mr0BRDyARIsAKEFbef_cgSWiueBquxOAjT_eOyzBFO2-26xPHg1h160mMPW2wHubd3bj5QaAkTeEALw_wcB&gclsrc=aw.ds)<br>
   
-  - Python (3.7.3)
-    - Download and install appropriate file: https://www.python.org/downloads/release/python-373/
-    
-  - Install Pip: Use pip to install all packages for python
-    - https://pip.pypa.io/en/stable/installing/
+  - [**Python (3.7.3)**](https://www.python.org/downloads/release/python-373/)<br>
+
+  - Install [**Pip**](https://pip.pypa.io/en/stable/installing/): Use pip to install all packages for python
 
   **Once Pip is installed, you can install all Python modules by going into your terminal and typing:**
    ```console
