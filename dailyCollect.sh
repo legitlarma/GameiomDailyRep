@@ -1,4 +1,8 @@
 currDirExe="$(pwd)/Gameiom-Daily-Report-previous-day.py"
-echo "${currDirExe}"
-exec nohup python3 ${currDirExe} &
+echo -n "Enter Gameiom Username: " 
+read username
+read -s -p "Enter Password: " password
+echo "\n"
+python3 ${currDirExe} $username $password &
+echo "\n"
 #open on start up

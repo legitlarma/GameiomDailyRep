@@ -12,15 +12,16 @@ from src import functions as f
 from src import GetData as gd
 from datetime import datetime
 import os
+import sys
 import schedule
 
-def prevDayCollect():
+def prevDayCollect(username, password):
     delta = timedelta(days = 1)
     downloadsPath = f.getPath('Downloads')
     downloadsPath_W_CSV = str(downloadsPath + '/gm-dailyReport.csv')
 
-    username = input("Enter Gameiom username: ")
-    password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
+    #username = input("Enter Gameiom username: ")
+    #password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
 
     cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/src/chromedriver'
 
@@ -60,7 +61,11 @@ def prevDayCollect():
     driver.quit()
     return 0
 
-prevDayCollect()
+
+
+username = str(sys.argv[1])
+password = str(sys.argv[2])
+prevDayCollect(username, password)
 '''schedule.every().day.at("04:00").do(prevDayCollect)
 while True:
     schedule.run_pending()
