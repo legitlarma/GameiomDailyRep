@@ -1,13 +1,13 @@
 # Gameiom Daily Report Collection
 
 ## Table Of Contents<br>
-**[Files](#Files)**<br>
+**[File Description](#File-Description)**<br>
 **[Requirements](#Requirements)**<br>
 **[Installation](#Installation)**<br>
+**[How to use Scripts](#How-to-use-Scripts)**<br>
+**[Run script from Startup]()**
 
-
-
-## Files:
+## File Description:
   - **Gameiom-Daily-Report-oneTimeRun.py**
     - From user-defined start date, the program logs into Gameiom account and automates the downloads of all csv files between the start date and today-1 (yesterday). Moves all csv data into single file called 'data.xlsx' and deletes downloaded csv files.
   - **Gameiom-Daily-Report-between-dates.py**
@@ -22,6 +22,9 @@
     - Deletes downloaded file
   - **functions.py**
     - Some functions created to allow the main programs to work correctly
+  - **dailyCollect.sh**
+    - Bash file to automatically run daily report collection of previous day at 4am every day. This has to be restarted on reboot.
+    - Script can be opened automatically on startup --link to how to for windows and mac--
   - **chromedriver**
     - Driver used by Selenium to allow for Google Chrome to automatically open
 
@@ -60,39 +63,45 @@
 
   Individually install (why though...):
   
-  - Selenium installation: 
-    - https://selenium-python.readthedocs.io/installation.html
+  - [**Selenium**](https://selenium-python.readthedocs.io/installation.html): 
     - ***Don't install the chromedriver as it is already in the git repository***
-    - ```console
+    ```console
         pip install selenium
       ```
   
-  - Openpyxl:
-    - https://openpyxl.readthedocs.io/en/stable/
-    - ```console
+  - [**Openpyxl**](https://openpyxl.readthedocs.io/en/stable/):
+    ```console
         pip install openpyxl
       ```
   
-  - Pandas
-    - https://pypi.org/project/pandas/
-    - ```console
+  - [**Pandas**](https://pypi.org/project/pandas/)
+    ```console
         pip install pandas
       ```
   
-  - Numpy:
-    - https://www.edureka.co/blog/install-numpy/
-    - ```console
+  - [**Numpy**](https://www.edureka.co/blog/install-numpy/):
+    ```console
         pip install numpy
       ```
     
-  - Xlrd:
-    - https://pypi.org/project/xlrd/#description
-    - ```console
+  - [**Xlrd**](https://pypi.org/project/xlrd/#description):
+    ```console
         pip install xlrd
       ```
     
-  - Schedule:
-    - https://pypi.org/project/schedule/
-    - ```console
+  - [**Schedule**](https://pypi.org/project/schedule/):
+    ```console
         pip install openpyxl
       ```
+<br>
+
+## How to use Scripts
+On initial install, run the Gameiom-Daily-Report-oneTimeRun.py script to load the backlog of daily reports from users chosen start date. To do this, in the terminal, run the oneTimeRun.sh file.
+```console
+        bash oneTimeRun.sh
+```
+Enter your username and password and the program will begin.
+
+***IMPORTANT***
+  #### ***Depending on your chosen start date, the script could take a very long time to collect all the reports. Therefore it is recommended to either run the script overnight and/or when you are not using your device.***
+## Run script from Startup

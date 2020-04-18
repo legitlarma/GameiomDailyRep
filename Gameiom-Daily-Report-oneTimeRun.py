@@ -10,12 +10,13 @@ from openpyxl import Workbook
 from datetime import date, timedelta
 from datetime import datetime
 import getpass
+import sys
 from src import GetData as gd
 from src import functions as f
 from openpyxl import Workbook
 import os
 
-def oneRun():
+def oneRun(username, password):
     delay = 3
 
     try:
@@ -36,8 +37,8 @@ def oneRun():
         wb = Workbook()
         wb.save(str(fileName+'/'+dest_filename))
     fileName = str(fileName+'/'+dest_filename)
-    username = input("Enter Gameiom username: ")
-    password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
+    #username = input("Enter Gameiom username: ")
+    #password = getpass.getpass("Password: ") #privately gets password (only in terminal, doesn't work on IDEs)
 
     cDriverpath = str(os.path.dirname(os.path.abspath(__file__)))+ '/src/chromedriver'
 
@@ -84,4 +85,6 @@ def oneRun():
         time.sleep(1)
 
     driver.quit()
-oneRun()
+username = str(sys.argv[1])
+password = str(sys.argv[2])
+oneRun(username, password)
