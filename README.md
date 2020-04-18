@@ -59,25 +59,36 @@ Installation:
   - Selenium installation: 
     - https://selenium-python.readthedocs.io/installation.html
     - ***Don't install the chromedriver as it is already in the git repository***
+    - ```console
+        pip install selenium
+      ```
   
   - Openpyxl:
+    - https://openpyxl.readthedocs.io/en/stable/
     - ```console
         pip install openpyxl
       ```
-    - https://openpyxl.readthedocs.io/en/stable/
   
   - Pandas
-    - 'pip install pandas'
     - https://pypi.org/project/pandas/
+    - ```console
+        pip install pandas
+      ```
   
   - Numpy:
-    - 'pip install numpy'
     - https://www.edureka.co/blog/install-numpy/
+    - ```console
+        pip install numpy
+      ```
     
   - Xlrd:
-    - 'pip install xlrd'
     - https://pypi.org/project/xlrd/#description
+    - ```console
+        pip install xlrd
+      ```
     
   - Schedule:
-    - 'pip install schedule'
     - https://pypi.org/project/schedule/
+    - ```console
+        pip install openpyxl
+      ```
