@@ -52,15 +52,18 @@ Installation:
    pip install -r requirements.txt
    ```
 
-  Or,
+  Or
 
   Individually install (why though...):
+  
   - Selenium installation: 
     - https://selenium-python.readthedocs.io/installation.html
     - ***Don't install the chromedriver as it is already in the git repository***
   
   - Openpyxl:
-    - 'pip install openpyxl'
+    - ```console
+        pip install openpyxl
+      ```
     - https://openpyxl.readthedocs.io/en/stable/
   
   - Pandas
