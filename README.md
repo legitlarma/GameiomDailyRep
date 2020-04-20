@@ -5,7 +5,7 @@
 **[Requirements](#Requirements)**<br>
 **[Installation](#Installation)**<br>
 **[How to use Scripts](#How-to-use-Scripts)**<br>
-**[Run script from Startup]()**
+**[Run script from Startup](#Run-script-from-Startup)**
 
 ## File Description:
   - **[Gameiom-Daily-Report-oneTimeRun.py](Gameiom-Daily-Report-oneTimeRun.py)**
@@ -116,7 +116,5 @@
           bash dailyCollect.sh
   ```
   Enter your username and password and the program should run in the background and you can close the terminal. The process will be executed at 4am every day, with said username and password.
-
-
 
 ## Run script from Startup
