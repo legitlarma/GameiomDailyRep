@@ -122,7 +122,7 @@ def gotoDate(driver, year, month, day):
             continue
 
 
-def prevDay(currDay, driver):
+def prevDay(currDay, driver):#not working
     done = False
     delay = 3
     #elem = driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')          #click date drop down
@@ -155,6 +155,7 @@ def nextDay(prevDate, driver):   #go to next day
         for j in range(7):
             xpath_ele = '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr['+str(i+1)+']/td['+str(j+1)+']'
             newelem = driver.find_element_by_xpath(xpath_ele)
+            text = newelem.text
             if (int(newelem.text) == (prevDate+1)):
                 text = newelem.text
                 newelem.click()
@@ -167,6 +168,7 @@ def nextDay(prevDate, driver):   #go to next day
             break
         else:
             continue
+    return text
 
-        
+
     #return xpath for next day
