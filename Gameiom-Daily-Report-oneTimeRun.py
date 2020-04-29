@@ -56,7 +56,6 @@ def oneRun(username, password):
         print("Login Successful")
 
     f.gotoDate(driver, init_year, init_month, init_day)
-    day = init_day
     time.sleep(2)
     date1 = date(init_year,init_month,init_day)
     tDelta = timedelta(days=1)
@@ -68,7 +67,7 @@ def oneRun(username, password):
     for i in range(delta):
         
         try:
-            elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/div/div/div/portable-export/div/button[2]')))#driver.find_element_by_xpath('/html/body/div/div[2]/div/div/div/portable-export/div/button[2]')
+            elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/div/div/div/portable-export/div/button[2]')))
             elem.click()
         except TimeoutException:
             print("Error 02")
@@ -80,8 +79,7 @@ def oneRun(username, password):
         
         if ((i+1)== delta):
             break
-        f.nextDay(day,driver)
-        day = day + 1
+        f.nextDay(date1.day,driver)
         time.sleep(1)
 
     driver.quit()

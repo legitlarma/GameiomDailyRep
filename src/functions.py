@@ -14,7 +14,7 @@ def LoginError(driver):
     delay = 3
     elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div/error-box/div')))
     elemclass = elem.get_attribute('class')
-    print ('elemclass=', elemclass)
+    #print ('elemclass=', elemclass)
     if (elemclass == 'error-box ng-binding'):
         print('Login Error: Login or Password Incorrect')
         return True
@@ -105,10 +105,17 @@ def gotoDate(driver, year, month, day):
             continue
 
     done = False
+    '''
+    Same problem here as NextDay()
+    '''
     for i in range(6):
         for j in range(7):
             xpath_ele = '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr['+str(i+1)+']/td['+str(j+1)+']'
             newelem = driver.find_element_by_xpath(xpath_ele)
+            elemclass = newelem.get_attribute('class')
+            #print(elemclass)
+            if (elemclass == 'day ng-binding ng-scope past'):
+                continue
             if (int(newelem.text) == day):
                 newelem.click()
                 done = True
@@ -145,7 +152,13 @@ def prevDay(currDay, driver):#not working
         else:
             continue
 
-def nextDay(prevDate, driver):   #go to next day
+def nextDay(prevDate, driver):   #go to next day not working
+    '''
+    Finding the day of the previous month because it is in the first row of elements.
+    Needs to skip first option
+    '''
+    print('prev=',prevDate)
+    prevDate = prevDate-1
     done = False
     delay = 3
     elem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/a')))
@@ -154,16 +167,29 @@ def nextDay(prevDate, driver):   #go to next day
     for i in range(6):
         for j in range(7):
             xpath_ele = '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr['+str(i+1)+']/td['+str(j+1)+']'
-            newelem = driver.find_element_by_xpath(xpath_ele)
+            newelem = WebDriverWait(driver,delay).until(EC.presence_of_element_located((By.XPATH, xpath_ele)))
             text = newelem.text
+            elemclass = newelem.get_attribute('class')
+            #print('elemclass = ', elemclass)
+            if (elemclass == 'day ng-binding ng-scope past'):
+                continue
+            if (int(text) == 1):
+                if (elemclass != 'day ng-binding ng-scope future'):
+                    continue
+                
             if (int(newelem.text) == (prevDate+1)):
+                '''
+                print('i', i)
+                print('j', j)
+                print('next ---')
+                '''
                 text = newelem.text
+                #print('text',text)
                 newelem.click()
                 done = True
                 return text
             else:
                 continue
-
         if (done == True):
             break
         else:
