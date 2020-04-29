@@ -63,7 +63,7 @@ def prevDayCollect(username, password):
 username = str(sys.argv[1])
 password = str(sys.argv[2])
 prevDayCollect(username, password)
-'''schedule.every().day.at("04:00").do(prevDayCollect(username, password))
+schedule.every().day.at("04:00").do(prevDayCollect(username, password))
 while True:
     schedule.run_pending()
-    time.sleep(1)'''
+    time.sleep(1)
