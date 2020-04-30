@@ -25,6 +25,10 @@
   - **[dailyCollect.sh](dailyCollect.sh)**
     - Bash file to automatically run daily report collection of previous day at 4am every day. This has to be restarted on reboot.
     - Script can be opened automatically on startup --link to how to for windows and mac--
+  - **[oneTimeRun.sh](oneTimeRun.sh)**
+    - Run this bash file to execute the python scripts from terminal. Input username and password and a start date and the program will download all the csv daily reports until the current day-1.
+  - **[betweenDates.sh](betweenDates.sh)**
+    - Bash to execute between dates script, by inputting date and and username and password.
   - **[chromedriver](https://chromedriver.chromium.org)**
     - Driver used by Selenium to allow for Google Chrome to automatically open
 
@@ -118,3 +122,4 @@
   Enter your username and password and the program should run in the background and you can close the terminal. The process will be executed at 4am every day, with said username and password.
 
 ## Run script from Startup
+

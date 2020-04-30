@@ -105,9 +105,7 @@ def gotoDate(driver, year, month, day):
             continue
 
     done = False
-    '''
-    Same problem here as NextDay()
-    '''
+    
     for i in range(6):
         for j in range(7):
             xpath_ele = '/html/body/div/div[2]/div/div/div/portable-day-filter/section/div/div/ul/div/table/tbody/tr['+str(i+1)+']/td['+str(j+1)+']'
@@ -153,10 +151,6 @@ def prevDay(currDay, driver):#not working
             continue
 
 def nextDay(prevDate, driver):   #go to next day not working
-    '''
-    Finding the day of the previous month because it is in the first row of elements.
-    Needs to skip first option
-    '''
     print('prev=',prevDate)
     prevDate = prevDate-1
     done = False
