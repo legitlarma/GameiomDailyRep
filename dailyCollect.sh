@@ -3,6 +3,6 @@ echo -n "Enter Gameiom Username: "
 read username
 read -s -p "Enter Password: " password
 echo "\n"
-python3 ${currDirExe} $username $password &
+exec python3 ${currDirExe} $username $password &
 echo "\n"
 #open on start up
