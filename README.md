@@ -121,5 +121,5 @@
   ```
   Enter your username and password and the program should run in the background and you can close the terminal. The process will be executed at 4am every day, with said username and password.
 
-## Run script from Startup
+## Run Daily Report Collection script from Startup
 
