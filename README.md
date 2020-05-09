@@ -58,17 +58,21 @@
 
   - Install [**Pip**](https://pip.pypa.io/en/stable/installing/): Use pip to install all packages for python
 
+  - Install [**ChromeDriver**](https://chromedriver.storage.googleapis.com/index.html?path=83.0.4103.39/) for your OS. 
+    - ***Make sure you move the chomedriver executable to the /src directory in the repo and replace any file already there.***
+
   **Once Pip is installed, you can install all Python modules by going into your terminal and typing:**
    ```console
    pip install -r requirements.txt
    ```
+
 
   Or
 
   Individually install (why though...):
   
   - [**Selenium**](https://selenium-python.readthedocs.io/installation.html): 
-    - ***Don't install the chromedriver as it is already in the git repository***
+  
     ```console
         pip install selenium
       ```
