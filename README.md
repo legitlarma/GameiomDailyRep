@@ -1,5 +1,7 @@
 # Gameiom Daily Report Collection
 
+Currently doesn't work on raspberry pi (raspian OS).
+
 ## Table Of Contents<br>
 **[File Description](#File-Description)**<br>
 **[Requirements](#Requirements)**<br>
