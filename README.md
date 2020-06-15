@@ -1,6 +1,6 @@
 # Gameiom Daily Report Collection
 
-Currently doesn't work on raspberry pi (raspian OS).
+Only compatible with MacOS.
 
 ## Table Of Contents<br>
 **[File Description](#File-Description)**<br>
