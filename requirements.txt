@@ -1,6 +1,6 @@
 selenium==3.141.0
 openpyxl==3.0.3
 pandas==0.25.3
-numpy==1.15.1
+numpy==1.22.0
 xlrd==1.2.0
 schedule==0.6.0
